@@ -1,12 +1,13 @@
 <p align="center">
    <a href="https://github.com/FantoX001">
-    <img src="https://c.tenor.com/NJVFjOYEcsIAAAAC/miku-gotoubun.gif" width="610">
+    <img src="https://c.tenor.com/YC7faYqFiMUAAAAC/akashi-akashi-seijuro.gif" width="610">
      
 </p>
-<h1 align="center"> Miku Nakano (Beta)
+<h1 align="center">  بوت اكاشي
 </h1>
 <p align="center"> 
-  Konochiwa Senpai, I am "Miku Nakano" a WhatsApp bot made by Fantox to do everything that is possible on WhatsApp based on WhatsApp Multi Device(MD) Support.
+  
+حياكم الله جميعا , بوت اكاشي عبارة عن بوت يقوم بعدة مهام مساعدة في تطبيق الواتساب
 
 <p align="center">
   <a href="https://github.com/FantoX001/Miku-MD/fork">
