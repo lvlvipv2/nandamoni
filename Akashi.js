@@ -214,7 +214,7 @@ const isQuotedAudio = m.mtype === 'extendedTextMessage' && content.includes('aud
 const mongoose = require("mongoose");
 
 
-/*
+
 
 /////////// -  DM chatbot (Delete this part to turn off DM Chat Bot) - //////////////////
 
@@ -222,11 +222,8 @@ if (!isCmd && !m.isGroup){
     const botreply = await axios.get(`http://api.brainshop.ai/get?bid=168758&key=Ci7eNhtxpxxDB5FQ&uid=[uid]&msg=[${budy}]`)
     txt = `${botreply.data.cnt}`
     m.reply(txt)
-    }
+  }
 
-//////////////////////////////////////////////////////////////////////////////////////
-
-*/
 _sewa.expiredCheck(Akashi, sewa)
 
 const reply = (teks) => {
@@ -355,15 +352,15 @@ const addCooldown = (userId) => {
 }
 
 var levelRole = getLevelingLevel(m.sender)
-        var role = 'نحاسي 5'
+        var role = ' اسطورة'
         if (levelRole <= 5) {
-            role = 'نحاسي 4'
+            role = ' عمكم'
         } else if (levelRole <= 10) {
-            role = 'نحاسي 3'
+            role = ' رهييب'
         } else if (levelRole <= 15) {
-            role = 'نحاسي 2'
+            role = ' عم الكل'
         } else if (levelRole <= 20) {
-            role = 'نحاسي 1'
+            role = ' قاهرهم'
         } else if (levelRole <= 25) {
             role = 'فضي 5'
         } else if (levelRole <= 30) {
@@ -399,15 +396,15 @@ var levelRole = getLevelingLevel(m.sender)
         }
 
         var levelRoles = getLevelingLevel(m.sender)
-        var roles = 'نحاس 5'
+        var roles = ' اسطورة'
         if (levelRoles <= 5) {
-            roles = 'نحاس 4'
+            roles = ' عمكم'
         } else if (levelRoles <= 10) {
-            roles = 'نحاس 3'
+            roles = ' رهيب'
         } else if (levelRoles <= 15) {
-            roles = 'نحاس 2'
+            roles = ' عم الكل'
         } else if (levelRoles <= 20) {
-            roles = 'نحاس 1'
+            roles = ' قاهرهم'
         } else if (levelRoles <= 25) {
             roles = 'فضة V'
         } else if (levelRoles <= 30) {
@@ -695,17 +692,17 @@ if (!afkTime || afkTime < 0) continue
 let reason = user.afkReason || ''
 reply(`
 لا تمنشنو تاني هو مش هنا!
-هو مش هنا بسبب  ${reason ? 'السبب ' + reason : 'لا يوجد'}
-During ${clockString(new Date - afkTime)}
+  ${reason ? 'السبب ' + reason : 'لا يوجد'}
+منذ ${clockString(new Date - afkTime)}
 `.trim())
 }
 
 if (db.users[m.sender].afkTime > -1) {
 let user = global.db.users[m.sender]
 reply(`
-Pls try not to tag him!
-He's Offline ${user.afkReason ? ' after ' + user.afkReason : ''}
-During ${clockString(new Date - user.afkTime)}
+لا تمنشنو تاني
+هو اوفلاين ${user.afkReason ? ' after ' + user.afkReason : ''}
+منذ ${clockString(new Date - user.afkTime)}
 `.trim())
 user.afkTime = -1
 user.afkReason = ''
@@ -721,9 +718,9 @@ sendOrder(m.chat, teks, "5123658817728409", fs.readFileSync('./Assets/pic10.jpg'
 if (AntiLink) {
     linkgce = await Akashi.groupInviteCode(from)
     if (budy.includes(`https://chat.whatsapp.com/${linkgce}`)) {
-    reply(`\`\`\`「  Antilink System  」\`\`\`\n\nNo action will be because you sent this group's link.`)
+    reply(`\`\`\`「  نظام حظر الروابط  」\`\`\`\n\n*ما اقدر اطلعك*`)
     } else if (isUrl(m.text)) {
-    bvl = `\`\`\`「  *Antilink System*  」\`\`\`\n\nAdmin has sent a link so no action is taken.`
+    bvl = `\`\`\`「  *نظام حظر الروابط*  」\`\`\`\n\n*ما اقدر اطلع المشرفين*`
     if (isAdmins) return reply(bvl)
     if (m.key.fromMe) return reply(bvl)
     if (isCreator) return reply(bvl)
@@ -762,7 +759,7 @@ Akashi.sendMessage(from, {text:`\`\`\`「 'wa.me' PM link Detected! 」\`\`\`\n\
 if (antiVirtex) {
     if (budy.length > 3500) {
     reply(`*Caution!*\n\n`.repeat(300))
-    reply(`\`\`\`Virus Detected !!\`\`\`\n\nRevoving sender...`)
+    reply(`\`\`\`تم كشف فايروس !!\`\`\`\n\n...`)
     if (!isBotAdmins) return reply(mess.botAdmin)
     Akashi.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
     }
@@ -773,15 +770,15 @@ if (antiVirtex) {
         if (!isBotAdmins) return
         linkgce = await Akashi.groupInviteCode(from)
         if (budy.includes(`https://chat.whatsapp.com/${linkgce}`)) {
-        reply(`\`\`\`「  Antilink System  」\`\`\`\n\nNo action will be taken because you sent this group's link!`)
+        reply(`\`\`\`「  نظام حظر الروابط  」\`\`\`\n\n*ما اقدر اطلعك*`)
         } else if (isUrl(m.text)) {
-        bvl = `\`\`\`「  Antilink System  」\`\`\`\n\nAdmin has sent a group link so no action will be taken!`
+        bvl = `\`\`\`「  نظام حظر الروابط  」\`\`\`\n\n*ما اقدر اطلع المشرفين*`
         if (isAdmins) return reply(bvl)
         if (m.key.fromMe) return reply(bvl)
         if (isCreator) return reply(bvl)
         kice = m.sender
         await Akashi.groupParticipantsUpdate(m.chat, [kice], 'remove')
-        Akashi.sendMessage(from, {text:`\`\`\`「  Antilink System  」\`\`\`\n\n@${kice.split("@")[0]} Baka has been removed for sending link in this group!`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
+        Akashi.sendMessage(from, {text:`\`\`\`「  حظر روابط  」\`\`\`\n\n@${kice.split("@")[0]} برااا يلا انقلع!`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
         } else {
         }
         }
@@ -915,6 +912,68 @@ if (!m.key.fromMe) return
 setInterval(() => {
 fs.writeFileSync('./src/database.json', JSON.stringify(global.db, null, 2))
 }, 60 * 1000)
+	
+//tictactoc
+this.game = this.game ? this.game : {}
+            let room = Object.values(this.game).find(room => room.id && room.game && room.state && room.id.startsWith('tictactoe') && [room.game.playerX, room.game.playerO].includes(m.sender) && room.state == 'PLAYING')
+            if (room) {
+            let ok
+            let isWin = !1
+            let isTie = !1
+            let isSurrender = !1
+            //reply(`[DEBUG]\n${parseInt(m.text)}`)
+            if (!/^([1-9]|(me)?استسلام|surr?ender|off|skip)$/i.test(m.text)) return
+            isSurrender = !/^[1-9]$/.test(m.text)
+            if (m.sender !== room.game.currentTurn) { 
+            if (!isSurrender) return !0
+            }
+            if (!isSurrender && 1 > (ok = room.game.turn(m.sender === room.game.playerO, parseInt(m.text) - 1))) {
+            reply({
+            '-3': 'Game Has Ended',
+            '-2': 'Invalid',
+            '-1': 'Invalid Position',
+            0: 'Invalid Position',
+            }[ok])
+            return !0
+            }
+            if (m.sender === room.game.winner) isWin = true
+            else if (room.game.board === 511) isTie = true
+            let arr = room.game.render().map(v => {
+            return {
+            X: '❌',
+            O: '⭕',
+            1: '1️⃣',
+            2: '2️⃣',
+            3: '3️⃣',
+            4: '4️⃣',
+            5: '5️⃣',
+            6: '6️⃣',
+            7: '7️⃣',
+            8: '8️⃣',
+            9: '9️⃣',
+            }[v]
+            })
+            if (isSurrender) {
+            room.game._currentTurn = m.sender === room.game.playerX
+            isWin = true
+            }
+            let winner = isSurrender ? room.game.currentTurn : room.game.winner
+            let str = `Room ID: ${room.id}
+    ${arr.slice(0, 3).join('')}
+    ${arr.slice(3, 6).join('')}
+    ${arr.slice(6).join('')}
+    ${isWin ? `@${winner.split('@')[0]} فائز!` : isTie ? `Game over` : `دورك ${['❌', '⭕'][1 * room.game._currentTurn]} (@${room.game.currentTurn.split('@')[0]})`}
+    ❌: @${room.game.playerX.split('@')[0]}
+    ⭕: @${room.game.playerO.split('@')[0]}
+    اكتب *استسلام* لمغادرة اللعبة`
+            if ((room.game._currentTurn ^ isSurrender ? room.x : room.o) !== m.chat)
+            room[room.game._currentTurn ^ isSurrender ? 'x' : 'o'] = m.chat
+            if (room.x !== room.o) await Akashi.sendText(room.x, str, m, { mentions: parseMention(str) } )
+            await Akashi.sendText(room.o, str, m, { mentions: parseMention(str) } )
+            if (isTie || isWin) {
+            delete this.game[room.id]
+            }
+            }
 
 // reset limit every 12 hours
 let cron = require('node-cron')
@@ -1741,7 +1800,7 @@ if (isBanChat) return reply(mess.bangc)
 if (m.isGroup) reply(mess.privateonly)
 if (!isCreator) return reply(mess.botowner)
 const getCase = (cases) => {
-return "case"+`'${cases}'`+fs.readFileSync("Akashi.js").toString().split('case \''+cases+'\'')[1].split("break")[0]+"break"
+return "case"+`'${cases}'`+fs.readFileSync("Core.js").toString().split('case \''+cases+'\'')[1].split("break")[0]+"break"
 }
 replay(`${getCase(q)}`)
 break
@@ -1890,7 +1949,7 @@ await Akashi.sendMessage(m.chat, { delete: key })
  members.map(async adm => {
  mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
  })
- Akashi.sendMessage(from, {text: `\`\`\`「 Warning 」\`\`\`\n\nAntilink System Activated!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
+ Akashi.sendMessage(from, {text: `\`\`\`「 تفعيل 」\`\`\`\n\n*تم تفعيل حظر الروابط*`, contextInfo: { mentionedJid : mems }}, {quoted:m})
  } else if (args[0] === "الغاء") {
  if (!AntiLink) return replay('تم الالغاء')
  let off = ntilink.indexOf(from)
@@ -2137,7 +2196,7 @@ await Akashi.sendMessage(m.chat, { delete: key })
    break
 
 
-   case 'antilinkallcvvvvvv': {
+   case 'حظر-جميع_روابط': {
     if (isBan) return reply(mess.banned)	 			
  if (isBanChat) return reply(mess.bangc)
  if (!m.isGroup) return replay(mess.grouponly)
@@ -2153,7 +2212,7 @@ await Akashi.sendMessage(m.chat, { delete: key })
  members.map(async adm => {
  mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
  })
- Akashi.sendMessage(from, {text: `\`\`\`「 Warning 」\`\`\`\n\nAntilink System Activated!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
+ Akashi.sendMessage(from, {text: `\`\`\`「 تفعيل 」\`\`\`\n\nتم تفعيل!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
  } else if (args[0] === "off") {
  if (!AntiLinkAll) return replay('Already deactivated')
  let off = ntilinkall.indexOf(from)
@@ -2260,7 +2319,9 @@ replay(`Successfully Unbanned the user.`)
 replay("Error")
 }
 }
-break
+break 
+		
+
 
 
 case 'المتصلين': case 'listaktif': case 'here':{
@@ -2398,6 +2459,56 @@ if (isBanChat) return reply(mess.bangc)
  }
  break
 
+case 'ttc': case 'ttt': case 'اكس_او': {
+    if (isBan) return reply(mess.ban)	 			
+if (isBanChat) return reply(mess.banChat)
+    let TicTacToe = require("./lib/tictactoe")
+    this.game = this.game ? this.game : {}
+    if (Object.values(this.game).find(room => room.id.startsWith('tictactoe') && [room.game.playerX, room.game.playerO].includes(m.sender))) return replay(`انتا ما زلت تلعب`)
+    let room = Object.values(this.game).find(room => room.state === 'WAITING' && (text ? room.name === text : true))
+    if (room) {
+    reply('تم')
+    room.o = m.chat
+    room.game.playerO = m.sender
+    room.state = 'PLAYING'
+    let arr = room.game.render().map(v => {
+    return {
+    X: '❌',
+    O: '⭕',
+    1: '1️⃣',
+    2: '2️⃣',
+    3: '3️⃣',
+    4: '4️⃣',
+    5: '5️⃣',
+    6: '6️⃣',
+    7: '7️⃣',
+    8: '8️⃣',
+    9: '9️⃣',
+    }[v]
+    })
+    let str = `Room ID: ${room.id}
+${arr.slice(0, 3).join('')}
+${arr.slice(3, 6).join('')}
+${arr.slice(6).join('')}
+Waiting @${room.game.currentTurn.split('@')[0]}
+Type *surrender* to surrender and admit defeat`
+    if (room.x !== room.o) await Akashi.sendText(room.x, str, m, { mentions: parseMention(str) } )
+    await   Akashi.sendText(room.o, str, m, { mentions: parseMention(str) } )
+    } else {
+    room = {
+    id: 'tictactoe-' + (+new Date),
+    x: m.chat,
+    o: '',
+    game: new TicTacToe(m.sender, 'o'),
+    state: 'WAITING'
+    }
+    if (text) room.name = text
+    reply('*ننتضر احد يلاعبك*' + (text ? ` Type The Command Below ${prefix}${command} ${text}` : ''))
+    this.game[room.id] = room
+    }
+    }
+    break
+
  case 'طاغ':{
     if (isBan) return reply(mess.banned)	 			
  if (isBanChat) return reply(mess.bangc)
@@ -2528,7 +2639,7 @@ let mentioned = participants.map(v => v.jid)
 
 
 
- case 'grouplink': case 'رابط': {
+ case 'groupddddlink': case 'رابط': {
     if (isBan) return reply(mess.banned)	 			
  if (isBanChat) return reply(mess.bangc)
  if (!m.isGroup) return replay(mess.grouponly)
@@ -3286,11 +3397,12 @@ break
               
 
 case 'مقطع': case 'play333': {
-    if (isBan) return reply(mess.banned)	 			
+ if (isBan) return reply(mess.banned)	 			
  if (isBanChat) return reply(mess.bangc)
+ if (!m.isGroup) return replay(mess.grouponly)
+ if (!isAdmins && !isCreator) return replay(mess.useradmin)
  const YT=require('./lib/ytdlcore')
  const { isUrl, fetchBuffer } = require('./lib/Function')
-
  if(!text) return Akashi.sendMessage(from,{text:"اكتب اسم المقطع او اجلب الرابط"},{quoted:m})
  let yts = require("yt-search")
  let search = await yts(text)
@@ -3414,7 +3526,7 @@ case 'مقطع': case 'play333': {
 
 
 
-case 'تطقيمات':  case 'تطقيم': {
+case 'تطقيميبسيبات':  case 'تطقيم': {
 if (isBan) return reply(mess.banned)
 if (isBanChat) return reply(mess.bangc)
          reply(mess.waiting)
@@ -3548,18 +3660,19 @@ Akashi.sendMessage(from, {text : `Case : ${kasus}\n\nDead : ${kematian}\n\nHeale
 break
 
 
-case 'صحبة': case 'صداقة': {
+case 'عشوائي': case 'قرعة': {
     if (isBan) return reply(mess.banned)
     if (isBanChat) return reply(mess.bangc)
 if (!m.isGroup) return replay(`${mess.grouponly}`)
 let member = participants.map(u => u.id)
 let orang = member[Math.floor(Math.random() * member.length)]
 let jodoh = member[Math.floor(Math.random() * member.length)]
-let jawab = `@${orang.split('@')[0]} ❤️ @${jodoh.split('@')[0]}
-يديم صداقتكم💖...`
+let jawab = `@${orang.split('@')[0]} الفائز الاول\n 
+@${jodoh.split('@')[0]}الفائز التاني\n
+مبروك...`
 let menst = [orang, jodoh]
 let buttons = [
-{ buttonId: 'اتفق', buttonText: { displayText: 'اتفق' }, type: 1 }
+{ buttonId: 'مبروك', buttonText: { displayText: 'مبروك' }, type: 1 }
 ]
 await Akashi.sendButtonText(m.chat, buttons, jawab, Akashi.user.name, m, {mentions: menst})
 }
@@ -3572,7 +3685,8 @@ if (!m.isGroup) return replay(`${mess.grouponly}`)
 let member = participants.map(u => u.id)
 let me = m.sender
 let jodoh = member[Math.floor(Math.random() * member.length)]
-let jawab = `توأم روحك :
+let jawab = `❣️ *توأم روحك ...* ❣️ \n
+✯────────────────────✯\n
 @${me.split('@')[0]} ❤️ @${jodoh.split('@')[0]}`
 let ments = [me, jodoh]
 let buttons = [
@@ -4838,12 +4952,12 @@ case 'اوامر':{
 •∆ ابحث عن شبيهك  من المشاهير
  
 •∆ -احزر
-•∆ احزر شخصية الانمي
+•∆ احزر شخصية مسلسل او فلم
  
 ⋄═──═◞🎮 قائمة الالعاب 🎮◟━──━⋄
 
-•∆ -حجر_ورق
-•∆ غير متوفر حاليا
+•∆ -اكس_او
+•∆ نافس صديقك ب اكس او
  
 •∆ -سولميت
 •∆ البوت يجيب لك توأم روحك (للمزح)
@@ -4858,8 +4972,8 @@ case 'اوامر':{
 •∆ البوت يجيبلك تحديات و خليك قدها
 •∆غير متوفر حاليا
  
-•∆ -صداقة
-•∆ يجلب لك صديقين
+•∆ -قرعة
+•∆ يجلب لك اتنين فائزين
 
 •∆-قتل او -صفع  (منشن شخص)
 
@@ -4879,7 +4993,7 @@ case 'اوامر':{
 •∆ البحث عن صور عشوائية 
 •∆ اكتب اسم بالانجليزي عشان ميجيب العيد 
 
-•∆ -تطقيم
+•∆ -تطقيم 
 •∆ جلب تطقيمات 
  
 •∆ -بنتر
@@ -4983,7 +5097,7 @@ case 'احزر':
     if (isBanChat) return reply(mess.bangc)
 
 const Akashiarrray= [
-            "https://wallpapercave.com/uwp/uwp642900.jpeg",
+           "https://wallpapercave.com/uwp/uwp642900.jpeg",
 "https://wallpapercave.com/wp/wp5684445.jpg",
 "https://wallpapercave.com/uwp/uwp2955192.jpeg",
 "https://wallpapercave.com/uwp/uwp655176.png",
@@ -5032,9 +5146,8 @@ const Akashiarrray= [
 "https://wallpapercave.com/dwp1x/wp2265067.jpg"
             
             ]
-    
         
-const txt = `*احزر اسم الشخصية*`
+const txt = `*اسم الشخصية؟*`
      
 const Akashiselection = Akashiarrray[Math.floor(Math.random()*Akashiarrray.length)]
         
@@ -5131,7 +5244,7 @@ default:
     if(isCmd){
         if (isBan) return reply(mess.banned)	 			
         if (isBanChat) return reply(mess.bangc)
-        reply (`باكا هالامر لا يتوفر اكتب -اوامر للحصول على قائمة الاوامر`)
+        reply (`*الامر خطأ يالطيب شيك على قائمة الاوامر -اوامر*`)
 
     }	 			
 
